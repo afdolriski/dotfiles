@@ -1,7 +1,7 @@
 ZDOTDIR="$HOME/.config/zsh"
 
 # Theme
-source "$ZDOTDIR/theme.zsh"
+source "$ZDOTDIR/prompt.zsh"
 
 # Path
 source "$ZDOTDIR/path.zsh"
