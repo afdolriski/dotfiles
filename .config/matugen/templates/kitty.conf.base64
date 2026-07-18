@@ -1,0 +1,71 @@
+# --- Main Colors ---
+background            {{ colors.surface.dark.hex }}
+foreground            {{ colors.on_surface.dark.hex }}
+cursor                {{ colors.on_surface.dark.hex }}
+cursor_text_color     {{ colors.surface.dark.hex }}
+
+selection_background  {{ colors.secondary_container.dark.hex }}
+selection_foreground  {{ colors.on_secondary_container.dark.hex }}
+
+url_color             {{ colors.tertiary.dark.hex }}
+
+# --- ANSI Colors ---
+color0                {{ base16.base00.dark.hex }}
+color1                {{ base16.base01.light.hex }}
+color2                {{ base16.base02.dark.hex }}
+color3                {{ base16.base03.dark.hex }}
+color4                {{ base16.base04.dark.hex }}
+color5                {{ base16.base05.dark.hex }}
+color6                {{ base16.base06.dark.hex }}
+color7                {{ base16.base07.dark.hex }}
+
+color8                {{ base16.base08.dark.hex }}
+color9                {{ base16.base09.light.hex }}
+color10               {{ base16.base0a.dark.hex }}
+color11               {{ base16.base0b.dark.hex }}
+color12               {{ base16.base0c.dark.hex }}
+color13               {{ base16.base0d.dark.hex }}
+color14               {{ base16.base0e.dark.hex }}
+color15               {{ base16.base0f.dark.hex }}
+
+# --- Starship Prompt Bubbles ---
+color255              {{ colors.primary_container.dark.hex }}
+color254              {{ colors.primary.dark.hex }}
+color253              {{ colors.secondary_container.dark.hex }}
+color252              {{ colors.secondary.dark.hex }}
+color251              {{ colors.tertiary_container.dark.hex }}
+color250              {{ colors.tertiary.dark.hex }}
+color249              {{ colors.error_container.dark.hex }}
+color248              {{ colors.error.dark.hex }}
+
+color232              {{ colors.on_primary_container.dark.hex }}
+color233              {{ colors.on_primary.dark.hex }}
+color234              {{ colors.on_secondary_container.dark.hex }}
+color235              {{ colors.on_secondary.dark.hex }}
+color236              {{ colors.on_tertiary_container.dark.hex }}
+color237              {{ colors.on_tertiary.dark.hex }}
+color238              {{ colors.on_error_container.dark.hex }}
+color239              {{ colors.on_error.dark.hex }}
+color240              {{ colors.on_primary_container.dark.hex }}
+
+# Matched with unthemed light/dark
+color243              {{ colors.primary.dark.hex }}
+color244              {{ colors.error.dark.hex }}
+color245              {{ colors.outline_variant.dark.hex }}
+
+# --- UI Elements ---
+active_tab_foreground   {{ colors.on_primary.dark.hex }}
+active_tab_background   {{ colors.primary.dark.hex }}
+inactive_tab_foreground {{ colors.on_primary_container.dark.hex }}
+inactive_tab_background {{ colors.primary_container.dark.hex }}
+
+active_border_color     {{ colors.primary.dark.hex }}
+inactive_border_color   {{ colors.outline.dark.hex }}
+
+# --- Marks ---
+mark1_foreground        {{ colors.on_primary_fixed.dark.hex }}
+mark1_background        {{ colors.primary_fixed.dark.hex }}
+mark2_foreground        {{ colors.on_secondary_fixed.dark.hex }}
+mark2_background        {{ colors.secondary_fixed.dark.hex }}
+mark3_foreground        {{ colors.on_tertiary_fixed.dark.hex }}
+mark3_background        {{ colors.tertiary_fixed.dark.hex }}
