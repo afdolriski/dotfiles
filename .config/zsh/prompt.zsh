@@ -1,6 +1,3 @@
-# Theme colors are loaded by _prompt_load_theme (defined below), which also
-# reloads them live when themify switches/refreshes the theme.
-
 # Prevent Python virtualenv from polluting the prompt export VIRTUAL_ENV_DISABLE_PROMPT=1
 # No EOL mark for partial lines (Pure used to set this)
 PROMPT_EOL_MARK=''
@@ -12,11 +9,6 @@ setopt TRANSIENT_RPROMPT
 autoload -Uz vcs_info add-zsh-hook
 zmodload zsh/datetime zsh/stat
 
-# ⚛✇࿋✪𖣘𖣐❀󱃋
-# ❟❛❟, ⚛✇࿋✪𖣘𖣐
-# --- Appearance ----------------------------------------------
-PROMPT_SYMBOL="${PROMPT_SYMBOL:-󰢚%} "
-PROMPT_SYMBOL_ERROR="${PROMPT_SYMBOL_ERROR:-🐦‍🔥} "
 
 # (Re)load theme colors and rebuild every color-dependent prompt piece. Runs at
 # startup and again whenever the theme changes under a running shell (see
@@ -42,24 +34,14 @@ _prompt_load_theme() {
 
 _prompt_load_theme
 
-# --- smart path -------------------------------------------
-SMART_PATH_LEVEL=3
-
-# smart_path [level] — $PWD with ~ substitution, truncated to at most
-# <level> trailing segments (…-prefixed when shortened)
-smart_path() {
-	local level="${1:-$SMART_PATH_LEVEL}"
-	local p="${(D)PWD}"
-	local -a parts parts=("${(@s:/:)p}")
-	[[ -z "$parts[1]" ]] && parts=("${(@)parts[2,-1]}")
-	if (( ${#parts} <= level )); then
-		print -rn -- "$p"
-	else
-		print -rn -- "…/${(@j:/:)parts[-level,-1]}"
-	fi
-}
-
 autoload -Uz colors && colors
+
+# ⚛✇࿋✪𖣘𖣐❀󱃋
+# ⚛ ✇ ࿋✪𖣘𖣐
+
+# --- Appearance ----------------------------------------------
+PROMPT_SYMBOL="${PROMPT_SYMBOL:-󰢚%} "
+PROMPT_SYMBOL_ERROR="${PROMPT_SYMBOL_ERROR:-֎} "
 
 PS1=''
 PS1+="%(?:%{$fg_bold[green]%}%1{󰢚%} :%{$fg_bold[red]%}%1{%} ) %{$fg[cyan]%}%c%{$reset_color%} "
