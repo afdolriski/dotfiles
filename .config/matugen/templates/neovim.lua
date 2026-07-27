@@ -62,3 +62,8 @@ set_hl_mutliple({ 'TSFunction', 'Function' }, {
 set_hl_mutliple({ 'Keyword', 'TSKeyword', 'TSKeywordFunction', 'TSRepeat' }, {
   fg = '{{colors.inverse_primary.default.hex}}',
 })
+
+vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#2e3f2f", fg = "#a3be8c" })    -- Muted Green
+vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#3f2e2e", fg = "#bf616a" }) -- Muted Red
+vim.api.nvim_set_hl(0, "DiffChange", { bg = "#3b4252", fg = "#d8dee9" }) -- Muted Blue/Grey
+vim.api.nvim_set_hl(0, "DiffText", { bg = "#4c566a", fg = "#88c0d0" })
