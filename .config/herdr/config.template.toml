@@ -32,3 +32,13 @@ peach       = "{{ colors.secondary_fixed_dim.dark.hex }}"
 
 [ui]
 agent_panel_sort = "spaces"
+hide_tab_bar_when_single_tab = true
+
+[keys]
+prefix = "ctrl+h"
+switch_tab = "prefix+1..9"
+switch_workspace = "prefix+shift+1..9"
+focus_agent = "prefix+alt+1..9"
+
+[experimental]
+kitty_graphics = true
