@@ -3,13 +3,13 @@
 --------------------------------------------------------------------------
 local telescope = require("telescope")
 local actions = require("telescope.actions")
- 
+
 local fd = vim.fn.executable("fd") == 1 and "fd" or "fdfind"
- 
+
 telescope.setup({
   defaults = {
     -- ripgrep invocation used by live_grep / grep_string
-    vimgrep_arguments = {
+    vimgrep_arguments    = {
       "rg",
       "--color=never",
       "--no-heading",
@@ -20,18 +20,25 @@ telescope.setup({
       "--hidden",
       "--glob=!**/.git/*",
     },
-    selection_caret = "❯ ",
-    entry_prefix    = "  ",
-    path_display = { "truncate" },
-    sorting_strategy = "ascending",
-    layout_strategy = "horizontal",
-    layout_config = {
+    selection_caret      = "❯ ",
+    entry_prefix         = "  ",
+    path_display         = { "truncate" },
+    sorting_strategy     = "ascending",
+    layout_strategy      = "horizontal",
+    layout_config        = {
       horizontal = { prompt_position = "top", preview_width = 0.55 },
       width = 0.9,
       height = 0.85,
     },
-    file_ignore_patterns = { "%.git/", "node_modules/", "%.lock$" },
-    mappings = {
+    file_ignore_patterns = {
+      "%.git/",
+      "%.claude/",
+      "%.skills/",
+      "%.playwright-mcp/",
+      "node_modules/",
+      "%.lock$"
+    },
+    mappings             = {
       i = {
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
@@ -44,7 +51,7 @@ telescope.setup({
       },
     },
   },
- 
+
   pickers = {
     find_files = {
       find_command = {
@@ -67,7 +74,7 @@ telescope.setup({
       },
     },
   },
- 
+
   extensions = {
     fzf = {
       fuzzy = true,
@@ -83,7 +90,7 @@ telescope.setup({
 --------------------------------------------------------------------------
 local builtin = require("telescope.builtin")
 local map = vim.keymap.set
- 
+
 map("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 map("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
 map("n", "<leader>fw", builtin.grep_string, { desc = "Grep word under cursor" })
@@ -94,15 +101,14 @@ map("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnostics" })
 map("n", "<leader>fr", builtin.resume, { desc = "Resume last picker" })
 map("n", "<leader>fk", builtin.keymaps, { desc = "Keymaps" })
 map("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search in buffer" })
- 
+
 -- Git
 map("n", "<leader>gf", builtin.git_files, { desc = "Git files" })
 map("n", "<leader>gc", builtin.git_commits, { desc = "Git commits" })
 map("n", "<leader>gb", builtin.git_branches, { desc = "Git branches" })
 map("n", "<leader>gs", builtin.git_status, { desc = "Git status" })
- 
+
 -- Search Neovim's own config
 map("n", "<leader>fn", function()
   builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end, { desc = "Find in nvim config" })
-

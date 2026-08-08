@@ -4,6 +4,14 @@
       "rev": "21233d5fd574439ae1e2f5e4bfbc574214f4ab3d",
       "src": "https://github.com/RRethy/base16-nvim"
     },
+    "mason.nvim": {
+      "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.nvim": {
+      "rev": "8bf5c57bc82dd590932faa41bfde9fd6d40a9433",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
     "nvim-lspconfig": {
       "rev": "7ab79bb1b57160a537f427ac8a6026102f12b701",
       "src": "https://github.com/neovim/nvim-lspconfig"
@@ -28,6 +36,14 @@
     "telescope.nvim": {
       "rev": "427b576c16792edad01a92b89721d923c19ad60f",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "vim-floaterm": {
+      "rev": "bb4ba7952e906408e1f83b215f55ffe57efcade6",
+      "src": "https://github.com/voldikss/vim-floaterm"
+    },
+    "vim-fugitive": {
+      "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
+      "src": "https://github.com/tpope/vim-fugitive"
     }
   }
 }
