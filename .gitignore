@@ -3,3 +3,4 @@
 .config/nvim/lua/matugen.lua
 .config/kitty/themes/Matugen.conf
 .config/zsh/.zcompdump
+.config/herdr/config.toml
