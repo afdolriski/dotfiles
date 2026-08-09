@@ -4,7 +4,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend("force", capabilities, require("mini.completion").get_lsp_capabilities())
 
 vim.lsp.config("*", {
-  -- root_markers = { ".git" },
+  root_markers = { ".git" },
   capabilities = capabilities
 })
 
@@ -32,6 +32,7 @@ vim.lsp.enable({
   "bashls",
   "cssls",
   "html",
+  "phpactor",
 })
 
 vim.diagnostic.config({

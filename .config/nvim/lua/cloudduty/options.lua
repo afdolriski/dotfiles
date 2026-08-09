@@ -18,7 +18,7 @@ vim.opt.wildmode = { 'noselect', 'full' }
 vim.opt.path = ".,,"
 vim.opt.foldenable = false
 
--- vim.opt.wrap = false
+vim.opt.wrap = false
 vim.opt.smartindent = true
 vim.opt.inccommand = "split"
 

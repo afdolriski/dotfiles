@@ -27,16 +27,24 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search cursor centered" })
 
 vim.keymap.set("n", "<leader>re", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word under cursor" })
 
+-- Delete without changing system clipboard
+vim.keymap.set({ "n", "x" }, "d", '"_d', { desc = "Delete to black hole register" })
+vim.keymap.set({ "n", "x" }, "c", '"_c', { desc = "Change to black hole register" })
+vim.keymap.set({ "n", "x" }, "x", '"_x', { desc = "Delete char to black hole register" })
+
+-- Visual paste without overwriting clipboard
+vim.keymap.set("x", "p", '"_dP', { desc = "Paste over selection without losing clipboard" })
+
 vim.keymap.set("n", "<leader>u", function()
   vim.cmd.packadd("nvim.undotree")
   require("undotree").open()
 end, { desc = "Toggle builtin undotree" })
 
--- Floaterm
-vim.keymap.set({'n', 't'}, '<C-\\>', '<CMD>FloatermToggle<CR>', { desc = 'Toggle Floaterm' })
-vim.keymap.set('n', '<Leader>fn', '<CMD>FloatermNew --height=0.7 --width=0.7 --wintype=float --name=floaterm1 --autoclose=2<CR>', { desc = 'New Floaterm' })
-vim.keymap.set({'n', 't'}, '<A-n>', '<CMD>FloatermNext<CR>', { desc = 'Next Floaterm' })
-vim.keymap.set({'n', 't'}, '<A-p>', '<CMD>FloatermPrev<CR>', { desc = 'Previous Floaterm' })
+vim.keymap.set('n', '<leader>cf', function()
+  local filepath = vim.fn.expand('%:p')
+  vim.fn.setreg('+', filepath)
+  print("Copied path: " .. filepath)
+end, { desc = "Copy current file path to clipboard" })
 
 -- LSP
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })

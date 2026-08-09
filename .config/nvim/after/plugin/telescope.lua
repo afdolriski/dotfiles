@@ -92,6 +92,12 @@ local builtin = require("telescope.builtin")
 local map = vim.keymap.set
 
 map("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+map("n", "<leader>fF", function()
+  builtin.find_files({
+    no_ignore = true,
+    hidden = true,
+  })
+end, { desc = "Telescope Find All Files" })
 map("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
 map("n", "<leader>fw", builtin.grep_string, { desc = "Grep word under cursor" })
 map("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
