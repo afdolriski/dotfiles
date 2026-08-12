@@ -10,6 +10,10 @@ input_path = './templates/neovim.lua'
 output_path = '~/.config/nvim/lua/matugen.lua'
 post_hook = 'pkill -SIGUSR1 nvim'
 
+[templates.opencode]
+input_path = './templates/opencode.json'
+output_path = '~/.dotfiles/.config/opencode/themes/matugen.json'
+
 [templates.herdr]
 input_path = '~/.config/herdr/config.template.toml'
 output_path = '~/.config/herdr/config.toml'

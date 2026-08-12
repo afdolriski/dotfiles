@@ -66,3 +66,5 @@ MiniCompletion.setup({
     end,
   }
 })
+
+require("mini.statusline").setup()

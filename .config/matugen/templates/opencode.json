@@ -1,0 +1,101 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "bg_dark": "{{ colors.surface.dark.hex }}",
+    "bg_light": "{{ colors.surface.light.hex }}",
+    "panel_dark": "{{ colors.surface_container.dark.hex }}",
+    "panel_light": "{{ colors.surface_container.light.hex }}",
+    "element_dark": "{{ colors.surface_container_high.dark.hex }}",
+    "element_light": "{{ colors.surface_container_high.light.hex }}",
+
+    "text_dark": "{{ colors.on_surface.dark.hex }}",
+    "text_light": "{{ colors.on_surface.light.hex }}",
+    "muted_dark": "{{ colors.on_surface_variant.dark.hex }}",
+    "muted_light": "{{ colors.on_surface_variant.light.hex }}",
+
+    "border_dark": "{{ colors.outline_variant.dark.hex }}",
+    "border_light": "{{ colors.outline_variant.light.hex }}",
+    "border_subtle_dark": "{{ colors.surface_container_highest.dark.hex }}",
+    "border_subtle_light": "{{ colors.surface_container_highest.light.hex }}",
+
+    "primary_dark": "{{ colors.primary.dark.hex }}",
+    "primary_light": "{{ colors.primary.light.hex }}",
+    "secondary_dark": "{{ colors.secondary.dark.hex }}",
+    "secondary_light": "{{ colors.secondary.light.hex }}",
+    "accent_dark": "{{ colors.tertiary.dark.hex }}",
+    "accent_light": "{{ colors.tertiary.light.hex }}",
+
+    "error_dark": "{{ colors.error.dark.hex }}",
+    "error_light": "{{ colors.error.light.hex }}",
+    "success_dark": "{{ colors.source_color.dark.hex }}",
+    "success_light": "{{ colors.source_color.light.hex }}",
+
+    "error_container_dark": "{{ colors.error_container.dark.hex }}",
+    "error_container_light": "{{ colors.error_container.light.hex }}",
+    "success_container_dark": "{{ colors.tertiary_container.dark.hex }}",
+    "success_container_light": "{{ colors.tertiary_container.light.hex }}",
+
+    "mauve_dark": "{{ colors.tertiary_fixed_dim.dark.hex }}",
+    "mauve_light": "{{ colors.tertiary_fixed_dim.light.hex }}",
+    "dim_dark": "{{ colors.outline.dark.hex }}",
+    "dim_light": "{{ colors.outline.light.hex }}"
+  },
+  "theme": {
+    "primary": { "dark": "primary_dark", "light": "primary_light" },
+    "secondary": { "dark": "secondary_dark", "light": "secondary_light" },
+    "accent": { "dark": "accent_dark", "light": "accent_light" },
+    "error": { "dark": "error_dark", "light": "error_light" },
+    "warning": { "dark": "secondary_dark", "light": "secondary_light" },
+    "success": { "dark": "success_dark", "light": "success_light" },
+    "info": { "dark": "primary_dark", "light": "primary_light" },
+
+    "text": { "dark": "text_dark", "light": "text_light" },
+    "textMuted": { "dark": "muted_dark", "light": "muted_light" },
+
+    "background": "none",
+    "backgroundPanel": { "dark": "panel_dark", "light": "panel_light" },
+    "backgroundElement": { "dark": "element_dark", "light": "element_light" },
+
+    "border": { "dark": "border_dark", "light": "border_light" },
+    "borderActive": { "dark": "primary_dark", "light": "primary_light" },
+    "borderSubtle": { "dark": "border_subtle_dark", "light": "border_subtle_light" },
+
+    "diffAdded": { "dark": "success_dark", "light": "success_light" },
+    "diffRemoved": { "dark": "error_dark", "light": "error_light" },
+    "diffContext": { "dark": "muted_dark", "light": "muted_light" },
+    "diffHunkHeader": { "dark": "muted_dark", "light": "muted_light" },
+    "diffHighlightAdded": { "dark": "success_dark", "light": "success_light" },
+    "diffHighlightRemoved": { "dark": "error_dark", "light": "error_light" },
+    "diffAddedBg": { "dark": "success_container_dark", "light": "success_container_light" },
+    "diffRemovedBg": { "dark": "error_container_dark", "light": "error_container_light" },
+    "diffContextBg": { "dark": "panel_dark", "light": "panel_light" },
+    "diffLineNumber": { "dark": "dim_dark", "light": "dim_light" },
+    "diffAddedLineNumberBg": { "dark": "success_container_dark", "light": "success_container_light" },
+    "diffRemovedLineNumberBg": { "dark": "error_container_dark", "light": "error_container_light" },
+
+    "markdownText": { "dark": "text_dark", "light": "text_light" },
+    "markdownHeading": { "dark": "primary_dark", "light": "primary_light" },
+    "markdownLink": { "dark": "accent_dark", "light": "accent_light" },
+    "markdownLinkText": { "dark": "secondary_dark", "light": "secondary_light" },
+    "markdownCode": { "dark": "success_dark", "light": "success_light" },
+    "markdownBlockQuote": { "dark": "muted_dark", "light": "muted_light" },
+    "markdownEmph": { "dark": "secondary_dark", "light": "secondary_light" },
+    "markdownStrong": { "dark": "primary_dark", "light": "primary_light" },
+    "markdownHorizontalRule": { "dark": "border_dark", "light": "border_light" },
+    "markdownListItem": { "dark": "primary_dark", "light": "primary_light" },
+    "markdownListEnumeration": { "dark": "accent_dark", "light": "accent_light" },
+    "markdownImage": { "dark": "accent_dark", "light": "accent_light" },
+    "markdownImageText": { "dark": "secondary_dark", "light": "secondary_light" },
+    "markdownCodeBlock": { "dark": "text_dark", "light": "text_light" },
+
+    "syntaxComment": { "dark": "dim_dark", "light": "dim_light" },
+    "syntaxKeyword": { "dark": "primary_dark", "light": "primary_light" },
+    "syntaxFunction": { "dark": "accent_dark", "light": "accent_light" },
+    "syntaxVariable": { "dark": "text_dark", "light": "text_light" },
+    "syntaxString": { "dark": "success_dark", "light": "success_light" },
+    "syntaxNumber": { "dark": "secondary_dark", "light": "secondary_light" },
+    "syntaxType": { "dark": "mauve_dark", "light": "mauve_light" },
+    "syntaxOperator": { "dark": "muted_dark", "light": "muted_light" },
+    "syntaxPunctuation": { "dark": "muted_dark", "light": "muted_light" }
+  }
+}
