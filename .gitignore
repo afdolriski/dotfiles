@@ -5,3 +5,4 @@
 .config/zsh/.zcompdump
 .config/herdr/config.toml
 .config/opencode/themes/matugen.json
+.config/btop/themes/matugen.theme

@@ -1,0 +1,85 @@
+# btop theme — matugen template.
+# Rendered to ~/.config/btop/themes/matugen.theme; never edit that file.
+# Uses the dark scheme throughout, same as the kitty and herdr templates.
+#
+# Meters (free/cached/available/used) are two-stop gradients, so their "mid" is
+# left empty on purpose — btop treats an empty mid as "interpolate start→end".
+# Graphs (temp/cpu/download/upload) use all three stops.
+
+# --- Base ---
+# Main background. Painted while btop.conf has theme_background = true; set that
+# to false to let the terminal background through instead.
+theme[main_bg]="{{ colors.surface.dark.hex }}"
+theme[main_fg]="{{ colors.on_surface_variant.dark.hex }}"
+
+# Box titles, and the highlight on keyboard shortcuts
+theme[title]="{{ colors.on_surface.dark.hex }}"
+theme[hi_fg]="{{ colors.primary.dark.hex }}"
+
+# Selected process row
+theme[selected_bg]="{{ colors.secondary_container.dark.hex }}"
+theme[selected_fg]="{{ colors.on_secondary_container.dark.hex }}"
+
+# Disabled text, and text drawn on top of graphs (uptime, net scaling)
+theme[inactive_fg]="{{ colors.outline_variant.dark.hex }}"
+theme[graph_text]="{{ colors.outline.dark.hex }}"
+
+# Mini cpu graphs and status text in the processes box
+theme[proc_misc]="{{ colors.tertiary.dark.hex }}"
+
+# --- Processes box states (btop >= 1.4; no bundled theme sets these, so
+# --- leaving them out means btop falls back to its saturated defaults) ---
+# Followed process
+theme[followed_bg]="{{ colors.primary_container.dark.hex }}"
+theme[followed_fg]="{{ colors.on_primary_container.dark.hex }}"
+theme[proc_follow_bg]="{{ colors.primary_container.dark.hex }}"
+
+# "paused" indicator
+theme[proc_pause_bg]="{{ colors.error_container.dark.hex }}"
+
+# Banner across the top of the processes box
+theme[proc_banner_bg]="{{ colors.tertiary_container.dark.hex }}"
+theme[proc_banner_fg]="{{ colors.on_tertiary_container.dark.hex }}"
+
+# --- Box outlines ---
+theme[cpu_box]="{{ colors.outline_variant.dark.hex }}"
+theme[mem_box]="{{ colors.outline_variant.dark.hex }}"
+theme[net_box]="{{ colors.outline_variant.dark.hex }}"
+theme[proc_box]="{{ colors.outline_variant.dark.hex }}"
+theme[div_line]="{{ colors.outline_variant.dark.hex }}"
+
+# --- Temperature graph: cool to hot ---
+theme[temp_start]="{{ colors.tertiary.dark.hex }}"
+theme[temp_mid]="{{ colors.secondary.dark.hex }}"
+theme[temp_end]="{{ colors.error.dark.hex }}"
+
+# --- CPU graph ---
+theme[cpu_start]="{{ colors.primary.dark.hex }}"
+theme[cpu_mid]="{{ colors.secondary.dark.hex }}"
+theme[cpu_end]="{{ colors.error.dark.hex }}"
+
+# --- Mem/disk meters: container tone to full tone ---
+theme[free_start]="{{ colors.tertiary_container.dark.hex }}"
+theme[free_mid]=""
+theme[free_end]="{{ colors.tertiary.dark.hex }}"
+
+theme[cached_start]="{{ colors.secondary_container.dark.hex }}"
+theme[cached_mid]=""
+theme[cached_end]="{{ colors.secondary.dark.hex }}"
+
+theme[available_start]="{{ colors.primary_container.dark.hex }}"
+theme[available_mid]=""
+theme[available_end]="{{ colors.primary.dark.hex }}"
+
+theme[used_start]="{{ colors.error_container.dark.hex }}"
+theme[used_mid]=""
+theme[used_end]="{{ colors.error.dark.hex }}"
+
+# --- Network graphs ---
+theme[download_start]="{{ colors.primary_container.dark.hex }}"
+theme[download_mid]="{{ colors.primary.dark.hex }}"
+theme[download_end]="{{ colors.primary_fixed.dark.hex }}"
+
+theme[upload_start]="{{ colors.tertiary_container.dark.hex }}"
+theme[upload_mid]="{{ colors.tertiary.dark.hex }}"
+theme[upload_end]="{{ colors.tertiary_fixed.dark.hex }}"

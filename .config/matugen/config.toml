@@ -10,6 +10,13 @@ input_path = '~/.config/matugen/templates/kitty.conf.template-custom'
 output_path = '~/.config/kitty/themes/Matugen.conf'
 # post_hook = 'command -v kitty >/dev/null 2>&1 && kitty +kitten themes --reload-in=all Matugen >/dev/null 2>&1 || true'
 
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+# SIGUSR2 is btop's reload-config signal, and the reload re-reads the theme from
+# disk. Not SIGUSR1 — btop uses that as a bare input-poll interrupt.
+post_hook = 'pkill -SIGUSR2 btop || true'
+
 [templates.neovim]
 input_path = '~/.config/matugen/templates/neovim.lua'
 output_path = '~/.config/nvim/lua/matugen.lua'
