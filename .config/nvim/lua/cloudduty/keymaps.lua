@@ -50,6 +50,20 @@ end, { desc = "Copy current file path to clipboard" })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format local buffer" })
 
+vim.keymap.set("n", "<leader>q", function()
+  local qf_exists = false
+  for _, win in pairs(vim.fn.getwininfo()) do
+    if win["quickfix"] == 1 then
+      qf_exists = true
+    end
+  end
+  if qf_exists then
+    vim.cmd("cclose")
+  else
+    vim.cmd("copen")
+  end
+end, { desc = "Toggle Quickfix List" })
+
 -- Git difftools
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "qf",
