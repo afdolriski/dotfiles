@@ -43,5 +43,6 @@ export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
 # Custom script
 export PATH="$HOME/extra/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 export PATH="$HOME/.platformio/penv/bin:$PATH"

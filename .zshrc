@@ -15,4 +15,3 @@ source "$ZDOTDIR/plugins.zsh"
 # Miscellaneous
 source "$ZDOTDIR/misc.zsh"
 
-
