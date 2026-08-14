@@ -1,14 +1,20 @@
 [config]
 
+# post_hooks run through `sh -c`, and matugen prints a red "Failed executing
+# command" line for any non-zero exit (it still renders the rest and exits 0).
+# So every hook below skips itself when its target isn't there and ends in
+# `|| true`: reloading an app that isn't running is a no-op, not an error.
+
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty.conf.template-custom'
 output_path = '~/.config/kitty/themes/Matugen.conf'
-# post_hook = "kitty +kitten themes --reload-in=all Matugen"
+# post_hook = 'command -v kitty >/dev/null 2>&1 && kitty +kitten themes --reload-in=all Matugen >/dev/null 2>&1 || true'
 
 [templates.neovim]
 input_path = '~/.config/matugen/templates/neovim.lua'
 output_path = '~/.config/nvim/lua/matugen.lua'
-post_hook = 'pkill -SIGUSR1 nvim'
+# pkill exits 1 when no nvim is running, which is the common case
+post_hook = 'pkill -SIGUSR1 nvim || true'
 
 [templates.opencode]
 input_path = '~/.config/matugen/templates/opencode.json'
@@ -19,4 +25,7 @@ output_path = '~/.config/opencode/themes/matugen.json'
 [templates.herdr]
 input_path = '~/.config/herdr/config.template.toml'
 output_path = '~/.config/herdr/config.toml'
-post_hook = 'herdr server reload-config'
+# Only reload a live server; the CLI errors out (and dumps JSON on success)
+# otherwise. Drop the redirects to debug a bad render — herdr reports template
+# problems in the reload diagnostics.
+post_hook = 'pgrep -x herdr >/dev/null 2>&1 && herdr server reload-config >/dev/null 2>&1 || true'
