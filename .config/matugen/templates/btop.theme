@@ -1,10 +1,6 @@
-# btop theme — matugen template.
-# Rendered to ~/.config/btop/themes/matugen.theme; never edit that file.
-# Uses the dark scheme throughout, same as the kitty and herdr templates.
-#
-# Meters (free/cached/available/used) are two-stop gradients, so their "mid" is
-# left empty on purpose — btop treats an empty mid as "interpolate start→end".
-# Graphs (temp/cpu/download/upload) use all three stops.
+# btop theme — matugen template. Rendered to ~/.config/btop/themes/matugen.theme;
+# never edit that file. Dark scheme throughout: chrome from Material roles,
+# gradients from the shared anchors + `harmonize` (see config.toml).
 
 # --- Base ---
 # Main background. Painted while btop.conf has theme_background = true; set that
@@ -20,12 +16,13 @@ theme[hi_fg]="{{ colors.primary.dark.hex }}"
 theme[selected_bg]="{{ colors.secondary_container.dark.hex }}"
 theme[selected_fg]="{{ colors.on_secondary_container.dark.hex }}"
 
-# Disabled text, and text drawn on top of graphs (uptime, net scaling)
-theme[inactive_fg]="{{ colors.outline_variant.dark.hex }}"
-theme[graph_text]="{{ colors.outline.dark.hex }}"
+# Disabled text, and text drawn on top of graphs (uptime, net scaling).
+# graph_text is drawn over a filled gradient, so it needs near-foreground brightness.
+theme[inactive_fg]="{{ colors.outline.dark.hex }}"
+theme[graph_text]="{{ colors.on_surface.dark.hex }}"
 
 # Mini cpu graphs and status text in the processes box
-theme[proc_misc]="{{ colors.tertiary.dark.hex }}"
+theme[proc_misc]="{{ "#5cbcc4" | to_color | harmonize: {{ colors.source_color.default.hex }} }}"
 
 # --- Processes box states (btop >= 1.4; no bundled theme sets these, so
 # --- leaving them out means btop falls back to its saturated defaults) ---
@@ -49,37 +46,39 @@ theme[proc_box]="{{ colors.outline_variant.dark.hex }}"
 theme[div_line]="{{ colors.outline_variant.dark.hex }}"
 
 # --- Temperature graph: cool to hot ---
-theme[temp_start]="{{ colors.tertiary.dark.hex }}"
-theme[temp_mid]="{{ colors.secondary.dark.hex }}"
-theme[temp_end]="{{ colors.error.dark.hex }}"
+theme[temp_start]="{{ "#5cbcc4" | to_color | harmonize: {{ colors.source_color.default.hex }} }}"
+theme[temp_mid]="{{ "#d9a441" | to_color | harmonize: {{ colors.source_color.default.hex }} }}"
+theme[temp_end]="{{ "#e35b60" | to_color | harmonize: {{ colors.source_color.default.hex }} }}"
 
-# --- CPU graph ---
-theme[cpu_start]="{{ colors.primary.dark.hex }}"
-theme[cpu_mid]="{{ colors.secondary.dark.hex }}"
-theme[cpu_end]="{{ colors.error.dark.hex }}"
+# --- CPU graph: idle-blue through load-yellow to pegged-red ---
+theme[cpu_start]="{{ "#6fa8ff" | to_color | harmonize: {{ colors.source_color.default.hex }} }}"
+theme[cpu_mid]="{{ "#d9a441" | to_color | harmonize: {{ colors.source_color.default.hex }} }}"
+theme[cpu_end]="{{ "#e35b60" | to_color | harmonize: {{ colors.source_color.default.hex }} }}"
 
-# --- Mem/disk meters: container tone to full tone ---
-theme[free_start]="{{ colors.tertiary_container.dark.hex }}"
+# --- Mem/disk meters: dim tone to full tone of the same hue ---
+# Two-stop gradients: the empty mid is deliberate, btop reads it as
+# "interpolate start→end". The graphs above/below use all three stops.
+theme[free_start]="{{ "#6bbf72" | to_color | harmonize: {{ colors.source_color.default.hex }} | set_lightness: 28.0 }}"
 theme[free_mid]=""
-theme[free_end]="{{ colors.tertiary.dark.hex }}"
+theme[free_end]="{{ "#6bbf72" | to_color | harmonize: {{ colors.source_color.default.hex }} }}"
 
-theme[cached_start]="{{ colors.secondary_container.dark.hex }}"
+theme[cached_start]="{{ "#5cbcc4" | to_color | harmonize: {{ colors.source_color.default.hex }} | set_lightness: 28.0 }}"
 theme[cached_mid]=""
-theme[cached_end]="{{ colors.secondary.dark.hex }}"
+theme[cached_end]="{{ "#5cbcc4" | to_color | harmonize: {{ colors.source_color.default.hex }} }}"
 
-theme[available_start]="{{ colors.primary_container.dark.hex }}"
+theme[available_start]="{{ "#6fa8ff" | to_color | harmonize: {{ colors.source_color.default.hex }} | set_lightness: 28.0 }}"
 theme[available_mid]=""
-theme[available_end]="{{ colors.primary.dark.hex }}"
+theme[available_end]="{{ "#6fa8ff" | to_color | harmonize: {{ colors.source_color.default.hex }} }}"
 
-theme[used_start]="{{ colors.error_container.dark.hex }}"
+theme[used_start]="{{ "#e35b60" | to_color | harmonize: {{ colors.source_color.default.hex }} | set_lightness: 28.0 }}"
 theme[used_mid]=""
-theme[used_end]="{{ colors.error.dark.hex }}"
+theme[used_end]="{{ "#e35b60" | to_color | harmonize: {{ colors.source_color.default.hex }} }}"
 
-# --- Network graphs ---
-theme[download_start]="{{ colors.primary_container.dark.hex }}"
-theme[download_mid]="{{ colors.primary.dark.hex }}"
-theme[download_end]="{{ colors.primary_fixed.dark.hex }}"
+# --- Network graphs: download blue, upload magenta ---
+theme[download_start]="{{ "#6fa8ff" | to_color | harmonize: {{ colors.source_color.default.hex }} | set_lightness: 30.0 }}"
+theme[download_mid]="{{ "#6fa8ff" | to_color | harmonize: {{ colors.source_color.default.hex }} }}"
+theme[download_end]="{{ "#6fa8ff" | to_color | harmonize: {{ colors.source_color.default.hex }} | lighten: 12.0 }}"
 
-theme[upload_start]="{{ colors.tertiary_container.dark.hex }}"
-theme[upload_mid]="{{ colors.tertiary.dark.hex }}"
-theme[upload_end]="{{ colors.tertiary_fixed.dark.hex }}"
+theme[upload_start]="{{ "#c88ce0" | to_color | harmonize: {{ colors.source_color.default.hex }} | set_lightness: 30.0 }}"
+theme[upload_mid]="{{ "#c88ce0" | to_color | harmonize: {{ colors.source_color.default.hex }} }}"
+theme[upload_end]="{{ "#c88ce0" | to_color | harmonize: {{ colors.source_color.default.hex }} | lighten: 12.0 }}"

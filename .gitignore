@@ -2,6 +2,9 @@
 
 .config/nvim/lua/matugen.lua
 .config/kitty/themes/Matugen.conf
+.config/kitty/themes/MatugenStrict.conf
+# Per-machine choice of which of the two above is active; see kitty.conf.
+.config/kitty/themes/theme.conf
 .config/zsh/.zcompdump
 .config/herdr/config.toml
 .config/opencode/themes/matugen.json

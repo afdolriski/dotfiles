@@ -1,14 +1,23 @@
 [config]
 
-# post_hooks run through `sh -c`, and matugen prints a red "Failed executing
-# command" line for any non-zero exit (it still renders the rest and exits 0).
-# So every hook below skips itself when its target isn't there and ends in
-# `|| true`: reloading an app that isn't running is a no-op, not an error.
+# Chrome = Material roles. Named hues (ANSI/syntax/diff/meters) = fixed anchors
+# + `harmonize`, since Material has only three hues. Anchors, hand-synced across
+# templates: red e35b60 green 6bbf72 yellow d9a441 orange e0854b blue 6fa8ff magenta c88ce0 cyan 5cbcc4
+
+# matugen prints a red "Failed executing command" for any non-zero post_hook
+# (still rendering the rest, still exiting 0), so every hook below skips itself
+# when its target is absent and ends in `|| true`.
 
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty.conf.template-custom'
 output_path = '~/.config/kitty/themes/Matugen.conf'
 # post_hook = 'command -v kitty >/dev/null 2>&1 && kitty +kitten themes --reload-in=all Matugen >/dev/null 2>&1 || true'
+
+# Same chrome, but ANSI comes only from matugen tonal palettes — no anchors.
+# Both render every run; pick one in ~/.config/kitty/themes/theme.conf.
+[templates.kitty_strict]
+input_path = '~/.config/matugen/templates/kitty-strict.conf.template'
+output_path = '~/.config/kitty/themes/MatugenStrict.conf'
 
 [templates.btop]
 input_path = '~/.config/matugen/templates/btop.theme'
@@ -32,7 +41,6 @@ output_path = '~/.config/opencode/themes/matugen.json'
 [templates.herdr]
 input_path = '~/.config/herdr/config.template.toml'
 output_path = '~/.config/herdr/config.toml'
-# Only reload a live server; the CLI errors out (and dumps JSON on success)
-# otherwise. Drop the redirects to debug a bad render — herdr reports template
-# problems in the reload diagnostics.
+# Only reload a live server; the CLI errors out otherwise. Drop the redirects to
+# debug a bad render — herdr reports template problems in the reload diagnostics.
 post_hook = 'pgrep -x herdr >/dev/null 2>&1 && herdr server reload-config >/dev/null 2>&1 || true'

@@ -1,6 +1,6 @@
-# kitty theme — matugen template. Rendered to ~/.config/kitty/themes/Matugen.conf;
-# never edit that file. Chrome = Material roles; ANSI = fixed anchors harmonized
-# to the wallpaper (see config.toml). Brights are the anchor + `lighten: 10`.
+# kitty theme — matugen template, STRICT variant. Rendered to
+# ~/.config/kitty/themes/MatugenStrict.conf; never edit that file. Chrome is
+# identical to kitty.conf.template-custom; ANSI is 100% matugen tonal palettes.
 
 # --- Main Colors ---
 background            {{ colors.surface.dark.hex }}
@@ -11,27 +11,29 @@ cursor_text_color     {{ colors.surface.dark.hex }}
 selection_background  {{ colors.secondary_container.dark.hex }}
 selection_foreground  {{ colors.on_secondary_container.dark.hex }}
 
-url_color             {{ "#5cbcc4" | to_color | harmonize: {{ colors.source_color.default.hex }} }}
+# Matches color6 (cyan), the usual slot for links.
+url_color             {{ palettes.tertiary._70.hex }}
 
 # --- ANSI Colors ---
-# color0/color8 are the two greys, not hues: darkest surface tone and outline.
-color0                {{ colors.surface_container_lowest.dark.hex }}
-color1                {{ "#e35b60" | to_color | harmonize: {{ colors.source_color.default.hex }} }}
-color2                {{ "#6bbf72" | to_color | harmonize: {{ colors.source_color.default.hex }} }}
-color3                {{ "#d9a441" | to_color | harmonize: {{ colors.source_color.default.hex }} }}
-color4                {{ "#6fa8ff" | to_color | harmonize: {{ colors.source_color.default.hex }} }}
-color5                {{ "#c88ce0" | to_color | harmonize: {{ colors.source_color.default.hex }} }}
-color6                {{ "#5cbcc4" | to_color | harmonize: {{ colors.source_color.default.hex }} }}
-color7                {{ colors.on_surface_variant.dark.hex }}
+# `error` carries one slot only (spec-fixed hue, so a red wallpaper collapses it
+# onto primary); yellow uses secondary. Two-slot palettes split by tone band.
+color0                {{ palettes.neutral._10.hex }}
+color1                {{ palettes.error._50.hex }}
+color2                {{ palettes.tertiary._50.hex }}
+color3                {{ palettes.secondary._50.hex }}
+color4                {{ palettes.primary._50.hex }}
+color5                {{ palettes.primary._80.hex }}
+color6                {{ palettes.tertiary._70.hex }}
+color7                {{ palettes.neutral_variant._80.hex }}
 
-color8                {{ colors.outline.dark.hex }}
-color9                {{ "#e35b60" | to_color | harmonize: {{ colors.source_color.default.hex }} | lighten: 10.0 }}
-color10               {{ "#6bbf72" | to_color | harmonize: {{ colors.source_color.default.hex }} | lighten: 10.0 }}
-color11               {{ "#d9a441" | to_color | harmonize: {{ colors.source_color.default.hex }} | lighten: 10.0 }}
-color12               {{ "#6fa8ff" | to_color | harmonize: {{ colors.source_color.default.hex }} | lighten: 10.0 }}
-color13               {{ "#c88ce0" | to_color | harmonize: {{ colors.source_color.default.hex }} | lighten: 10.0 }}
-color14               {{ "#5cbcc4" | to_color | harmonize: {{ colors.source_color.default.hex }} | lighten: 10.0 }}
-color15               {{ colors.on_surface.dark.hex }}
+color8                {{ palettes.neutral._40.hex }}
+color9                {{ palettes.error._60.hex }}
+color10               {{ palettes.tertiary._60.hex }}
+color11               {{ palettes.secondary._60.hex }}
+color12               {{ palettes.primary._70.hex }}
+color13               {{ palettes.primary._90.hex }}
+color14               {{ palettes.tertiary._80.hex }}
+color15               {{ palettes.neutral._95.hex }}
 
 # --- Starship Prompt Bubbles ---
 # Container + its on_* partner is a background/foreground pair, so this is the
