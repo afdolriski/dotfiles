@@ -1,0 +1,6 @@
+# Template for the untracked themes/theme.conf: `cp theme.conf.example theme.conf`.
+# Matugen.conf = harmonized, hues keep their names. MatugenStrict.conf = purely
+# wallpaper-derived. Run matugen at least once or neither file exists yet.
+
+include ./Matugen.conf
+# include ./MatugenStrict.conf
